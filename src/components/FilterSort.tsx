@@ -1,5 +1,5 @@
 import React from 'react';
-import { AdjustmentsHorizontalIcon, ArrowsUpDownIcon } from '@heroicons/react/24/outline';
+import { AdjustmentsHorizontalIcon, ArrowsUpDownIcon, ChevronUpIcon, ChevronDownIcon } from '@heroicons/react/24/outline';
 import { FilterOptions } from '../types';
 
 interface FilterSortProps {
@@ -10,11 +10,32 @@ interface FilterSortProps {
 
 const FilterSort: React.FC<FilterSortProps> = ({ filters, onFiltersChange, skipCount }) => {
   const handleSortChange = (sortBy: 'price' | 'size') => {
-    onFiltersChange({ ...filters, sortBy });
+    if (filters.sortBy === sortBy) {
+      onFiltersChange({ 
+        ...filters, 
+        sortOrder: filters.sortOrder === 'asc' ? 'desc' : 'asc' 
+      });
+    } else {
+      onFiltersChange({ 
+        ...filters, 
+        sortBy, 
+        sortOrder: 'asc' 
+      });
+    }
   };
 
   const handleDetailsToggle = () => {
     onFiltersChange({ ...filters, showDetails: !filters.showDetails });
+  };
+
+  const getSortIcon = (sortType: 'price' | 'size') => {
+    if (filters.sortBy !== sortType) return null;
+    
+    return filters.sortOrder === 'asc' ? (
+      <ChevronUpIcon className="w-3 h-3 ml-1" />
+    ) : (
+      <ChevronDownIcon className="w-3 h-3 ml-1" />
+    );
   };
 
   return (
@@ -56,26 +77,30 @@ const FilterSort: React.FC<FilterSortProps> = ({ filters, onFiltersChange, skipC
             <button
               onClick={() => handleSortChange('price')}
               className={`
-                flex-1 px-4 py-2 text-sm font-medium transition-colors
+                flex-1 px-4 py-2 text-sm font-medium transition-colors cursor-pointer
+                flex items-center justify-center
                 ${filters.sortBy === 'price'
                   ? 'bg-primary-500 text-white'
-                  : 'bg-white text-gray-700'
+                  : 'bg-white text-gray-700 hover:bg-gray-50'
                 }
               `}
             >
               Price
+              {getSortIcon('price')}
             </button>
             <button
               onClick={() => handleSortChange('size')}
               className={`
-                flex-1 px-4 py-2 text-sm font-medium transition-colors border-l border-gray-300
+                flex-1 px-4 py-2 text-sm font-medium transition-colors border-l border-gray-300 cursor-pointer
+                flex items-center justify-center
                 ${filters.sortBy === 'size'
                   ? 'bg-primary-500 text-white'
-                  : 'bg-white text-gray-700'
+                  : 'bg-white text-gray-700 hover:bg-gray-50'
                 }
               `}
             >
               Size
+              {getSortIcon('size')}
             </button>
           </div>
         </div>
@@ -100,7 +125,8 @@ const FilterSort: React.FC<FilterSortProps> = ({ filters, onFiltersChange, skipC
               <button
                 onClick={() => handleSortChange('price')}
                 className={`
-                  px-3 py-1.5 text-sm font-medium transition-colors
+                  px-3 py-1.5 text-sm font-medium transition-colors cursor-pointer
+                  flex items-center
                   ${filters.sortBy === 'price'
                     ? 'bg-primary-500 text-white'
                     : 'bg-white text-gray-700 hover:bg-gray-50'
@@ -108,11 +134,13 @@ const FilterSort: React.FC<FilterSortProps> = ({ filters, onFiltersChange, skipC
                 `}
               >
                 Price
+                {getSortIcon('price')}
               </button>
               <button
                 onClick={() => handleSortChange('size')}
                 className={`
-                  px-3 py-1.5 text-sm font-medium transition-colors border-l border-gray-300
+                  px-3 py-1.5 text-sm font-medium transition-colors border-l border-gray-300 cursor-pointer
+                  flex items-center
                   ${filters.sortBy === 'size'
                     ? 'bg-primary-500 text-white'
                     : 'bg-white text-gray-700 hover:bg-gray-50'
@@ -120,6 +148,7 @@ const FilterSort: React.FC<FilterSortProps> = ({ filters, onFiltersChange, skipC
                 `}
               >
                 Size
+                {getSortIcon('size')}
               </button>
             </div>
           </div>

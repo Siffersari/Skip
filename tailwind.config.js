@@ -15,20 +15,61 @@ module.exports = {
         '2xl': '1536px',
       },
       colors: {
+        // WeWantWaste Brand Colors - Professional Evolution
         primary: {
+          50: '#fff7ed',
+          100: '#ffedd5',
+          200: '#fed7aa',
+          300: '#fdba74',
+          400: '#fb923c',
+          500: '#ff9900', // Bright Orange - Primary Actions/CTAs
+          600: '#ea580c',
+          700: '#c2410c',
+          800: '#9a3412',
+          900: '#7c2d12',
+          950: '#431407',
+        },
+        secondary: {
+          50: '#fafafa',
+          100: '#f4f4f5',
+          200: '#e4e4e7',
+          300: '#d4d4d8',
+          400: '#a1a1aa',
+          500: '#71717a',
+          600: '#52525b',
+          700: '#3f3f46',
+          800: '#2d2d2d', // Dark Charcoal - Brand/Headings
+          900: '#18181b',
+          950: '#09090b',
+        },
+        accent: {
           50: '#eff6ff',
           100: '#dbeafe',
           200: '#bfdbfe',
           300: '#93c5fd',
           400: '#60a5fa',
-          500: '#3b82f6',
+          500: '#007bff', // Bright Blue - Selection States
           600: '#2563eb',
           700: '#1d4ed8',
           800: '#1e40af',
           900: '#1e3a8a',
           950: '#172554',
         },
-        secondary: {
+        // Neutral System
+        neutral: {
+          50: '#f7f7f7', // Light Grey - Main Background
+          100: '#ffffff', // White - Card Backgrounds
+          200: '#eaeaea', // Pale Grey - Borders & Dividers
+          300: '#d1d5db',
+          400: '#9ca3af',
+          500: '#555555', // Medium Grey - Body Text
+          600: '#4b5563',
+          700: '#374151',
+          800: '#1f2937',
+          900: '#111827',
+        },
+        // Utility colors for status/feedback
+        success: {
           50: '#f0fdf4',
           100: '#dcfce7',
           200: '#bbf7d0',
@@ -39,11 +80,35 @@ module.exports = {
           700: '#15803d',
           800: '#166534',
           900: '#14532d',
-          950: '#052e16',
+        },
+        warning: {
+          50: '#fffbeb',
+          100: '#fef3c7',
+          200: '#fde68a',
+          300: '#fcd34d',
+          400: '#fbbf24',
+          500: '#f59e0b',
+          600: '#d97706',
+          700: '#b45309',
+          800: '#92400e',
+          900: '#78350f',
+        },
+        error: {
+          50: '#fef2f2',
+          100: '#fee2e2',
+          200: '#fecaca',
+          300: '#fca5a5',
+          400: '#f87171',
+          500: '#ef4444',
+          600: '#dc2626',
+          700: '#b91c1c',
+          800: '#991b1b',
+          900: '#7f1d1d',
         }
       },
       fontFamily: {
         sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        display: ['Poppins', 'Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
       },
       spacing: {
         '18': '4.5rem',
@@ -55,6 +120,7 @@ module.exports = {
         'slide-up': 'slideUp 0.3s ease-out',
         'bounce-subtle': 'bounceSubtle 2s infinite',
         'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'attention-pulse': 'attentionPulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       },
       keyframes: {
         fadeIn: {
@@ -68,6 +134,16 @@ module.exports = {
         bounceSubtle: {
           '0%, 100%': { transform: 'translateY(0)' },
           '50%': { transform: 'translateY(-4px)' },
+        },
+        attentionPulse: {
+          '0%, 70%, 100%': { 
+            transform: 'scale(1)',
+            opacity: '1'
+          },
+          '35%': { 
+            transform: 'scale(1.05)',
+            opacity: '0.9'
+          },
         }
       },
       minHeight: {
@@ -76,6 +152,10 @@ module.exports = {
       minWidth: {
         'touch': '44px',
       },
+      // Custom background colors for selection states
+      backgroundColor: {
+        'selection-subtle': '#f0f7ff', // Light blue background for selected cards
+      }
     },
   },
   plugins: [

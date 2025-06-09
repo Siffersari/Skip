@@ -27,6 +27,7 @@ const SkipSelectionPage: React.FC<SkipSelectionPageProps> = ({
   const [selectedSkip, setSelectedSkip] = useState<Skip | null>(null);
   const [filters, setFilters] = useState<FilterOptions>({
     sortBy: 'price',
+    sortOrder: 'asc',
     showDetails: false
   });
 
@@ -34,13 +35,17 @@ const SkipSelectionPage: React.FC<SkipSelectionPageProps> = ({
     if (!skips.length) return [];
 
     return [...skips].sort((a, b) => {
+      let comparison = 0;
+      
       if (filters.sortBy === 'price') {
-        return (a.total_price || 0) - (b.total_price || 0);
+        comparison = (a.total_price || 0) - (b.total_price || 0);
       } else {
-        return a.size - b.size;
+        comparison = a.size - b.size;
       }
+      
+      return filters.sortOrder === 'asc' ? comparison : -comparison;
     });
-  }, [skips, filters.sortBy]);
+  }, [skips, filters.sortBy, filters.sortOrder]);
 
   // Auto-select 6-yard skip as default
   useEffect(() => {
@@ -231,10 +236,10 @@ const SkipSelectionPage: React.FC<SkipSelectionPageProps> = ({
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
         >
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-2 sm:mb-3">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 my-4 sm:mb-3">
             Choose Your Skip Size
           </h1>
-          <p className="text-sm sm:text-base lg:text-lg text-gray-600 max-w-2xl mx-auto px-2 sm:px-0">
+          <p className="text-sm sm:text-base lg:text-lg text-gray-600 max-w-2xl mx-auto px-2 mb-4 sm:px-0">
             Select the skip size that best suits your needs. All prices include {sortedSkips[0]?.vat || 20}% VAT and delivery to {LOCATION_CONFIG.AREA}, {LOCATION_CONFIG.POSTCODE}.
           </p>
         </motion.div>

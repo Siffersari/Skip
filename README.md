@@ -1,263 +1,227 @@
-# Skip Hire Selection - Production-Ready React Application
+# WeWantWaste - Skip Selection Page Redesign
 
-A modern, responsive, and production-ready React application for skip hire selection, built with TypeScript, Tailwind CSS, and following industry best practices.
+A complete redesign of the "Choose Your Skip Size" page for WeWantWaste, completed as a front-end coding challenge. This project transforms a basic selection interface into a modern, responsive, and user-centric booking experience while maintaining all core functionality.
 
-## 🚀 Live Demo
-- **Development**: http://localhost:3000
-- **Production Build**: Ready for deployment to Vercel, Netlify, or AWS
+---
 
-## 📋 Table of Contents
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [Project Structure](#project-structure)
-- [Getting Started](#getting-started)
-- [Architecture](#architecture)
-- [Performance Optimizations](#performance-optimizations)
-- [Testing](#testing)
-- [Deployment](#deployment)
-- [API Integration](#api-integration)
+## 🚀 **Live Demo**
 
-## ✨ Features
+**[View the live, interactive demo here →](https://your-deployment-link.com)**
 
-### Core Functionality
-- **Skip Selection**: Interactive grid of skip sizes with detailed information
-- **Real-time API Integration**: Fetches skip data from WeWantWaste API
-- **Smart Filtering & Sorting**: Sort by price or size with visual feedback
-- **Responsive Design**: Mobile-first approach with optimized layouts
-- **Auto-selection**: Intelligently pre-selects 6-yard skip as recommended
+*[Note: Replace with your actual deployment URL after deployment]*
 
-### Production-Ready Features
-- **Error Boundaries**: Comprehensive error handling with user-friendly messages
-- **Network Resilience**: Exponential backoff retry mechanism with fallback data
-- **Empty States**: Actionable guidance when no data is available
-- **Loading States**: Professional loading indicators with context
-- **Accessibility**: WCAG compliant with proper ARIA attributes
-- **SEO Optimized**: Semantic HTML structure and meta tags
+---
 
-### Performance Optimizations
-- **Memoization**: React.memo, useMemo, and useCallback for optimal re-renders
-- **Virtualization**: Support for large datasets with react-window
-- **Code Splitting**: Lazy loading for better initial load times
-- **Bundle Optimization**: Tree shaking and optimal chunk sizes
+## 📸 **Visual Showcase**
 
-## 🛠 Tech Stack
+![WeWantWaste Redesign Showcase](https://via.placeholder.com/1200x800/FF9900/FFFFFF?text=WeWantWaste+Skip+Selection+Redesign)
 
-### Core Technologies
-- **React 19** - Latest stable version with concurrent features
-- **TypeScript 4.9** - Type safety and developer experience
-- **Tailwind CSS 3.4** - Utility-first CSS framework
-- **Vite/React Scripts** - Modern build tooling
+*The redesigned interface featuring a modern card-based layout, responsive design, and intuitive user experience*
 
-### Key Libraries
-- **@heroicons/react** - Beautiful SVG icons
-- **axios** - HTTP client with interceptors
-- **react-window** - Virtualization for large lists
-- **@headlessui/react** - Unstyled, accessible UI components
+---
 
-### Development Tools
-- **ESLint** - Code linting with React and TypeScript rules
-- **PostCSS** - CSS processing and optimization
-- **TypeScript** - Static type checking
+## 🎯 **My Approach & Design Philosophy**
 
-## 📁 Project Structure
+My primary goal was to transform the user experience from a basic selection list into a clean, intuitive, and professional booking interface. I focused on three core areas:
 
-```
-src/
-├── components/
-│   ├── common/           # Reusable UI components
-│   │   ├── ErrorBoundary.tsx
-│   │   ├── EmptyState.tsx
-│   │   ├── Stepper.tsx
-│   │   └── VirtualizedGrid.tsx
-│   ├── ui/              # Basic UI components
-│   │   ├── LoadingSpinner.tsx
-│   │   └── index.ts
-│   ├── features/        # Feature-specific components
-│   │   ├── SkipCard.tsx
-│   │   └── FilterSort.tsx
-├── hooks/               # Custom React hooks
-│   ├── useSkips.ts
-│   └── index.ts
-├── pages/               # Page components
-│   ├── SkipSelectionPage.tsx
-│   └── index.ts
-├── layouts/             # Layout components
-│   └── MainLayout.tsx
-├── services/            # API and external services
-│   └── api.ts
-├── types/               # TypeScript type definitions
-│   └── index.ts
-├── utils/               # Utility functions
-│   └── index.ts
-├── constants/           # Application constants
-│   └── index.ts
-└── styles/              # Global styles and Tailwind config
-```
+### **1. UI/UX & Visual Design**
 
-## 🚀 Getting Started
+* **Modern Aesthetics:** I replaced the dated layout with a clean, card-based grid system using shadowing, rounded corners, and proper spacing. This provides better visual separation for each option and makes the page easier to scan.
 
-### Prerequisites
-- Node.js 16.x or higher
+* **Brand-Aligned Color Palette:** I analyzed the company's existing website to understand their brand identity and developed a sophisticated color system:
+    * **Primary Orange (`#FF9900`):** Reserved for key calls-to-action (`Continue`, `Get Quote`) to guide users and improve conversion
+    * **Accent Blue (`#007BFF`):** Used exclusively for selection states to provide clear, unambiguous feedback without competing with primary actions
+    * **Professional Neutrals:** Clean greys and whites create a professional backdrop that improves readability and reduces visual clutter
+
+* **Interactive Feedback:** The UI provides clear visual feedback through:
+    - Prominent selection borders with accent colors
+    - Smooth hover effects and micro-animations using Framer Motion
+    - Visual sorting indicators for price and size
+    - Smart continue button behavior that appears when a selection is made
+
+### **2. Enhanced User Experience**
+
+* **Intuitive Skip Selection:** Each skip card displays comprehensive information including:
+    - Clear size specifications and equivalent bin bag counts
+    - Detailed use case descriptions (e.g., "Small domestic clearouts", "Kitchen renovations")
+    - Pricing transparency with VAT inclusion
+    - Visual restrictions and capabilities
+
+* **Smart Functionality:** 
+    - **Functional Sorting:** Users can sort by price or size with visual toggle indicators
+    - **Auto-selection:** The recommended 6-yard skip is pre-selected for faster decision-making
+    - **Expandable Details:** Collapsible sections reveal additional information without overwhelming the initial view
+
+* **Progressive Disclosure:** Information is layered logically - essential details are immediately visible, while additional specifics are available on demand.
+
+### **3. Technical Excellence & Responsiveness**
+
+* **Mobile-First Design:** 
+    - **Desktop:** Multi-column grid effectively utilizes available space
+    - **Tablet:** Responsive grid that adapts to medium screens
+    - **Mobile:** Single-column layout optimized for touch interactions
+
+* **Production-Ready Code:**
+    - **Component Architecture:** Clean, reusable React components with TypeScript
+    - **Performance Optimized:** Uses React.memo, useMemo, and useCallback for optimal rendering
+    - **Error Handling:** Comprehensive error boundaries and loading states
+    - **Accessibility:** WCAG-compliant with proper ARIA attributes and keyboard navigation
+
+---
+
+## 🛠 **Tech Stack**
+
+* **React 19** - Latest stable version with modern hooks and concurrent features
+* **TypeScript** - Type safety and enhanced developer experience
+* **Tailwind CSS** - Utility-first CSS framework for rapid, maintainable styling
+* **Framer Motion** - Smooth animations and micro-interactions
+* **Lucide React** - Modern, consistent icon library
+* **Axios** - HTTP client for API integration
+* **React Scripts** - Zero-config build setup
+
+---
+
+## 🚀 **Getting Started**
+
+### **Prerequisites:**
+- Node.js (v16 or later recommended)
 - npm or yarn
 
-### Installation
+### **Installation:**
 
-1. **Clone the repository**
-   ```bash
-   git clone <repository-url>
-   cd skip-redesign
-   ```
-
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
-
-3. **Start development server**
-   ```bash
-   npm start
-   ```
-
-4. **Build for production**
-   ```bash
-   npm run build
-   ```
-
-### Environment Setup
-Create a `.env` file in the root directory:
-```env
-REACT_APP_API_BASE_URL=https://app.wewantwaste.co.uk/api
-REACT_APP_ENV=development
-```
-
-## 🏗 Architecture
-
-### Component Architecture
-- **Atomic Design**: Components organized by complexity and reusability
-- **Composition over Inheritance**: Flexible component composition patterns
-- **Props Interface**: Strongly typed component interfaces
-
-### State Management
-- **Local State**: React hooks for component-specific state
-- **Global State**: Context API for shared application state
-- **Server State**: Custom hooks with caching and synchronization
-
-### Error Handling Strategy
-- **Error Boundaries**: Catch and handle React component errors
-- **API Error Handling**: Structured error responses with user-friendly messages
-- **Network Resilience**: Automatic retry with exponential backoff
-- **Fallback Data**: Mock data when API is unavailable
-
-### Responsive Design
-- **Mobile-First**: Progressive enhancement from mobile to desktop
-- **Breakpoint System**: Consistent responsive breakpoints
-- **Touch Optimization**: Touch-friendly interactions for mobile devices
-
-## ⚡ Performance Optimizations
-
-### React Optimizations
-- **Memoization**: Prevent unnecessary re-renders
-- **Lazy Loading**: Dynamic imports for code splitting
-- **Virtual Scrolling**: Handle large lists efficiently
-
-### Network Optimizations
-- **Request Caching**: Intelligent API response caching
-- **Retry Logic**: Exponential backoff for failed requests
-- **Compression**: Gzip/Brotli compression for assets
-
-### Bundle Optimizations
-- **Tree Shaking**: Remove unused code
-- **Code Splitting**: Optimal chunk sizes
-- **Asset Optimization**: Compressed images and fonts
-
-## 🧪 Testing
-
-### Testing Strategy
+1. **Clone the repository:**
 ```bash
-# Run all tests
-npm test
-
-# Run tests with coverage
-npm run test:coverage
-
-# Run tests in watch mode
-npm run test:watch
+git clone https://github.com/your-username/wewantwaste-skip-redesign.git
+cd skip-redesign
 ```
 
-### Test Structure
-- **Unit Tests**: Component and utility function testing
-- **Integration Tests**: API integration and user flow testing
-- **E2E Tests**: Complete user journey testing
+2. **Install dependencies:**
+```bash
+npm install
+```
 
-## 🚀 Deployment
+3. **Start the development server:**
+```bash
+npm start
+```
 
-### Production Build
+The application will be running at `http://localhost:3000`
+
+### **Build for production:**
 ```bash
 npm run build
 ```
 
-### Deployment Platforms
-- **Vercel**: Zero-config deployment with automatic previews
-- **Netlify**: Git-based deployment with form handling
-- **AWS S3 + CloudFront**: Enterprise-grade hosting solution
+---
 
-### Environment Variables
-```env
-REACT_APP_API_BASE_URL=https://app.wewantwaste.co.uk/api
-REACT_APP_ENV=production
-REACT_APP_SENTRY_DSN=your-sentry-dsn
+## 📁 **Project Structure**
+
+```
+src/
+├── components/
+│   ├── SkipCard.tsx          # Main skip selection card component
+│   ├── Header.tsx            # Application header with branding
+│   ├── Stepper.tsx          # Progress indicator component
+│   └── FloatingFooter.tsx   # Bottom action bar
+├── pages/
+│   └── SkipSelectionPage.tsx # Main page component
+├── layouts/
+│   └── MainLayout.tsx       # Primary layout wrapper
+├── hooks/
+│   └── useSkips.ts          # Custom hook for skip data management
+├── services/
+│   └── api.ts               # API integration and data fetching
+├── types/
+│   └── index.ts             # TypeScript type definitions
+├── utils/
+│   └── index.ts             # Utility functions (formatting, etc.)
+└── constants/
+    └── index.ts             # Application constants
 ```
 
-## 🔌 API Integration
+---
 
-### Endpoints
-- **GET /skips/by-location**: Fetch skips by postcode and area
-  ```typescript
-  interface SkipsResponse {
-    skips: Skip[];
-    postcode: string;
-    area: string;
-  }
-  ```
+## ✨ **Key Features Implemented**
 
-### Error Handling
-- **Network Errors**: Automatic retry with exponential backoff
-- **API Errors**: Structured error responses with fallback data
-- **Timeout Handling**: Configurable request timeouts
+### **Core Functionality:**
+- ✅ **Skip Selection:** Interactive grid with detailed skip information
+- ✅ **API Integration:** Real-time data from WeWantWaste API endpoints
+- ✅ **Sorting:** Functional price and size sorting with visual indicators
+- ✅ **Responsive Design:** Optimized for all device sizes
+- ✅ **Auto-selection:** Pre-selects recommended 6-yard skip
 
-### Caching Strategy
-- **Memory Caching**: In-memory cache for API responses
-- **Stale-While-Revalidate**: Background updates for fresh data
-- **Cache Invalidation**: Smart cache invalidation strategies
+### **User Experience Enhancements:**
+- ✅ **Loading States:** Professional loading indicators during API calls
+- ✅ **Error Handling:** User-friendly error messages and retry functionality
+- ✅ **Smooth Animations:** Micro-interactions that enhance usability
+- ✅ **Accessibility:** Keyboard navigation and screen reader support
+- ✅ **Progressive Disclosure:** Expandable details for comprehensive information
 
-## 📱 Browser Support
-- **Modern Browsers**: Chrome, Firefox, Safari, Edge (last 2 versions)
-- **Mobile Browsers**: iOS Safari, Chrome Mobile, Samsung Internet
-- **Progressive Enhancement**: Graceful degradation for older browsers
+### **Technical Excellence:**
+- ✅ **TypeScript:** Full type safety across the application
+- ✅ **Performance Optimization:** Memoization and efficient re-rendering
+- ✅ **Clean Code:** Maintainable, documented, and well-structured
+- ✅ **Modern React:** Hooks, functional components, and best practices
 
-## 🔧 Configuration
+---
 
-### Tailwind CSS
-- **Custom Colors**: Brand-specific color palette
-- **Responsive Design**: Mobile-first breakpoint system
-- **Component Classes**: Reusable component utilities
+## 🎨 **Design Decisions**
 
-### TypeScript
-- **Strict Mode**: Enabled for maximum type safety
-- **Path Mapping**: Absolute imports for better developer experience
-- **Type Generation**: Automatic type generation from API schemas
+### **Color Strategy:**
+- **Orange (`#FF9900`):** Primary actions and brand consistency
+- **Blue (`#007BFF`):** Selection states and interactive elements
+- **Greys:** Content hierarchy and professional appearance
 
-## 🤝 Contributing
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes with tests
-4. Submit a pull request
+### **Typography:**
+- Clear hierarchy with consistent font weights
+- Optimized for readability across all device sizes
+- Proper contrast ratios for accessibility compliance
 
-## 📄 License
-This project is licensed under the MIT License.
+### **Layout Philosophy:**
+- **Card-based design** for clear content separation
+- **Grid system** that adapts fluidly to screen sizes
+- **White space** strategically used to reduce cognitive load
 
-## 👨‍💻 Developer Notes
-- Built for WeWantWaste interview process
-- Demonstrates production-ready React development practices
-- Implements modern UI/UX patterns and performance optimizations
-- Follows industry best practices for scalability and maintainability
+---
+
+## 🔄 **Future Improvements**
+
+Given additional time, I would consider implementing:
+
+* **Advanced Filtering:** Filter skips by specific criteria (location restrictions, waste types)
+* **Comparison Tool:** Side-by-side skip comparison functionality
+* **User Preferences:** Remember previous selections and preferences
+* **A/B Testing Framework:** Infrastructure for testing different UI variations
+* **Advanced Analytics:** User interaction tracking for conversion optimization
+* **Unit Testing:** Comprehensive test coverage using Jest and React Testing Library
+
+---
+
+## 📋 **API Integration**
+
+The application integrates with the WeWantWaste API:
+
+- **Endpoint:** `https://app.wewantwaste.co.uk/api/skips/by-location`
+- **Parameters:** `postcode=CB42UU&area=docking`
+- **Response:** Array of skip objects with pricing, specifications, and availability
+
+Error handling includes retry logic and fallback data to ensure a smooth user experience even when the API is unavailable.
+
+---
+
+## 🏆 **Project Highlights**
+
+This redesign demonstrates:
+
+1. **User-Centric Design:** Every decision prioritizes user experience and conversion
+2. **Technical Proficiency:** Modern React patterns, TypeScript, and performance optimization
+3. **Production Readiness:** Error handling, accessibility, and maintainable code structure
+4. **Brand Alignment:** Respects existing brand identity while modernizing the interface
+5. **Business Value:** Improved usability that should lead to higher conversion rates
+
+---
+
+**Completed by:** [Your Name]  
+**Challenge Duration:** [Time Taken]  
+**GitHub Repository:** [Repository Link]  
+**Live Demo:** [Deployment Link]

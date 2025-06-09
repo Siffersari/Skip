@@ -40,6 +40,7 @@ export interface SkipCardProps {
 
 export interface FilterOptions {
   sortBy: 'price' | 'size';
+  sortOrder: 'asc' | 'desc';
   showDetails: boolean;
 }
 

@@ -3,10 +3,9 @@ import { motion } from 'framer-motion';
 
 const CheckIcon = () => (
   <svg
-    className="w-4 h-4 sm:w-5 sm:h-5 text-white"
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 20 20"
+    className="w-4 h-4 sm:w-5 sm:h-5"
     fill="currentColor"
+    viewBox="0 0 20 20"
   >
     <path
       fillRule="evenodd"
@@ -29,7 +28,7 @@ interface StepProps {
 const Step: React.FC<StepProps> = ({ index, title, isActive, isCompleted, onClick, isClickable }) => {
   return (
     <motion.div 
-      className="flex items-center flex-shrink-0"
+      className="flex items-center"
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3, delay: index * 0.1 }}
@@ -37,10 +36,10 @@ const Step: React.FC<StepProps> = ({ index, title, isActive, isCompleted, onClic
       <motion.button
         className={`w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center rounded-full font-semibold transition-all duration-300 text-sm ${
           isCompleted
-            ? 'bg-green-500 text-white'
+            ? 'bg-success-500 text-white'
             : isActive
-            ? 'bg-gradient-to-r from-purple-600 to-blue-500 text-white shadow-sm'
-            : 'bg-white border border-gray-300 text-gray-500'
+            ? 'bg-gradient-to-r from-accent-500 to-accent-600 text-white shadow-sm'
+            : 'bg-white border border-neutral-300 text-neutral-500'
         } ${isClickable ? 'cursor-pointer hover:scale-105 touch-target-min-44' : 'cursor-default'}`}
         onClick={() => isClickable && onClick && onClick(index + 1)}
         disabled={!isClickable}
@@ -51,7 +50,7 @@ const Step: React.FC<StepProps> = ({ index, title, isActive, isCompleted, onClic
       </motion.button>
       <motion.p
         className={`text-xs sm:text-sm ml-2 sm:ml-3 transition-all duration-300 ${
-          isActive ? 'text-gray-900 font-bold' : isCompleted ? 'text-gray-700 font-semibold' : 'text-gray-500'
+          isActive ? 'text-secondary-900 font-bold' : isCompleted ? 'text-secondary-700 font-semibold' : 'text-neutral-500'
         }`}
         initial={{ opacity: 0, x: -10 }}
         animate={{ opacity: 1, x: 0 }}
@@ -82,7 +81,7 @@ const Stepper: React.FC<StepperProps> = ({
       <div className="hidden md:block py-3 lg:py-4">
         <div className="max-w-7xl mx-auto px-3 sm:px-4">
           <motion.div 
-            className="w-full py-4 bg-gradient-to-r from-green-50 via-gray-50 to-gray-100 rounded-xl"
+            className="w-full py-2 lg:px-6 bg-gradient-to-r from-success-50 via-neutral-50 to-neutral-100 rounded-xl"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -102,7 +101,7 @@ const Stepper: React.FC<StepperProps> = ({
                   {index < steps.length - 1 && (
                     <motion.div
                       className={`flex-auto border-t-2 border-dashed transition-all duration-300 mx-2 lg:mx-4 ${
-                        index + 1 < currentStep ? 'border-green-500' : 'border-gray-300'
+                        index + 1 < currentStep ? 'border-success-500' : 'border-neutral-300'
                       }`}
                       initial={{ scaleX: 0 }}
                       animate={{ scaleX: 1 }}
@@ -120,7 +119,7 @@ const Stepper: React.FC<StepperProps> = ({
       <div className="md:hidden py-4">
         <div className="max-w-7xl mx-auto px-3 sm:px-4">
           <motion.div 
-            className="bg-gradient-to-r from-green-50 via-gray-50 to-gray-100 rounded-xl shadow-sm px-4 py-4"
+            className="bg-gradient-to-r from-success-50 via-neutral-50 to-neutral-100 rounded-xl shadow-sm px-4 py-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -128,7 +127,7 @@ const Stepper: React.FC<StepperProps> = ({
             {/* Progress Header */}
             <div className="flex items-center justify-between mb-3">
               <motion.div 
-                className="text-sm font-semibold text-gray-700"
+                className="text-sm font-semibold text-secondary-700"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.3 }}
@@ -136,7 +135,7 @@ const Stepper: React.FC<StepperProps> = ({
                 Step {currentStep} of {steps.length}
               </motion.div>
               <motion.div 
-                className="text-sm font-medium text-gray-600"
+                className="text-sm font-medium text-neutral-600"
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.3 }}
@@ -146,9 +145,9 @@ const Stepper: React.FC<StepperProps> = ({
             </div>
             
             {/* Progress Bar */}
-            <div className="w-full bg-gray-200 rounded-full h-2 mb-4 overflow-hidden">
+            <div className="w-full bg-neutral-200 rounded-full h-2 mb-4 overflow-hidden">
               <motion.div
-                className="bg-gradient-to-r from-green-500 to-green-600 h-2 rounded-full"
+                className="bg-gradient-to-r from-accent-500 to-accent-600 h-2 rounded-full"
                 initial={{ width: 0 }}
                 animate={{ width: `${(currentStep / steps.length) * 100}%` }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
@@ -163,13 +162,13 @@ const Stepper: React.FC<StepperProps> = ({
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
               >
-                <div className="w-12 h-12 flex items-center justify-center rounded-full font-bold text-lg bg-gradient-to-r from-purple-600 to-blue-500 text-white border-3 border-white shadow-lg">
+                <div className="w-12 h-12 flex items-center justify-center rounded-full font-bold text-lg bg-gradient-to-r from-accent-500 to-accent-600 text-white border-3 border-white shadow-lg">
                   {currentStep}
                 </div>
               </motion.div>
               
               <motion.div 
-                className="text-lg font-bold text-gray-900 mb-2"
+                className="text-lg font-bold text-secondary-900 mb-2"
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: 0.2 }}
@@ -191,8 +190,8 @@ const Stepper: React.FC<StepperProps> = ({
                   <>
                    
                     <div className="text-left min-w-0 flex-1">
-                      <div className="text-xs text-green-600 font-medium">Previous</div>
-                      <div className="text-sm font-semibold text-gray-700 truncate">
+                      <div className="text-xs text-success-600 font-medium">Previous</div>
+                      <div className="text-sm font-semibold text-secondary-700 truncate">
                         {steps[currentStep - 2]}
                       </div>
                     </div>
@@ -204,7 +203,7 @@ const Stepper: React.FC<StepperProps> = ({
 
               {/* Divider */}
               {currentStep > 1 && currentStep < steps.length && (
-                <div className="w-0.5 h-8 bg-gray-300 mx-4" />
+                <div className="w-0.5 h-8 bg-neutral-300 mx-4" />
               )}
 
               {/* Next Step */}
@@ -212,8 +211,8 @@ const Stepper: React.FC<StepperProps> = ({
                 {currentStep < steps.length ? (
                   <>
                     <div className="text-right min-w-0 flex-1">
-                      <div className="text-xs text-gray-500 font-medium">Next</div>
-                      <div className="text-sm font-semibold text-gray-700 truncate">
+                      <div className="text-xs text-neutral-500 font-medium">Next</div>
+                      <div className="text-sm font-semibold text-secondary-700 truncate">
                         {steps[currentStep]}
                       </div>
                     </div>

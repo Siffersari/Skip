@@ -4,24 +4,56 @@
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#2563eb" />
+    <meta name="theme-color" content="#FF9900" />
+    
+    <!-- Performance optimization -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
     <meta
       name="description"
       content="WeWantWaste - Professional skip hire services made simple. Choose from a range of skip sizes for your project with transparent pricing and reliable delivery across the UK."
     />
-    <meta name="keywords" content="skip hire, waste removal, rubbish collection, construction waste, household clearance, UK skip rental" />
+    <meta name="keywords" content="skip hire, waste removal, rubbish collection, construction waste, household clearance, UK skip rental, WeWantWaste, RemWaste" />
     <meta name="author" content="WeWantWaste" />
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content="WeWantWaste - Skip Hire Made Simple" />
     <meta property="og:description" content="Professional skip hire services with transparent pricing and reliable delivery. Choose your perfect skip size today." />
-    <meta property="og:image" content="%PUBLIC_URL%/og-image.jpg" />
+    <meta property="og:image" content="%PUBLIC_URL%/assets/images/REM-Waste-Logo.png" />
+    <meta property="og:url" content="https://app.wewantwaste.co.uk" />
     
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="WeWantWaste - Skip Hire Made Simple" />
     <meta name="twitter:description" content="Professional skip hire services with transparent pricing and reliable delivery." />
+    <meta name="twitter:image" content="%PUBLIC_URL%/assets/images/REM-Waste-Logo.png" />
+    
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "WeWantWaste",
+      "description": "Professional skip hire services with transparent pricing and reliable delivery",
+      "url": "https://app.wewantwaste.co.uk",
+      "telephone": "+441502123456",
+      "email": "hello@wewantwaste.co.uk",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Lowestoft",
+        "postalCode": "NR32",
+        "addressCountry": "GB"
+      },
+      "serviceArea": {
+        "@type": "Place",
+        "name": "United Kingdom"
+      },
+      "priceRange": "£294-£1190",
+      "image": "%PUBLIC_URL%/assets/images/REM-Waste-Logo.png"
+    }
+    </script>
     
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <!--
@@ -41,7 +73,13 @@
     <title>WeWantWaste - Skip Hire Made Simple | Professional Waste Removal Services</title>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <noscript>
+      <div style="text-align: center; padding: 50px; font-family: Arial, sans-serif;">
+        <h1>JavaScript Required</h1>
+        <p>This application requires JavaScript to run. Please enable JavaScript in your browser settings.</p>
+        <p>For immediate skip hire assistance, call us at <a href="tel:01502123456">01502 123 456</a></p>
+      </div>
+    </noscript>
     <div id="root"></div>
     <!--
       This HTML file is a template.

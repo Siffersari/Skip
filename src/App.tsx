@@ -12,7 +12,7 @@ function App() {
   }, []);
 
   const handleBack = () => {
-    // Removed unnecessary back toast - users can see navigation happening
+    return;
   };
 
   const handleContinue = (selectedSkip: Skip) => {
@@ -20,7 +20,7 @@ function App() {
       `Great choice! ${selectedSkip.display_name} for ${formatCurrency(selectedSkip.total_price)}`,
       { duration: 3000, icon: '🎉' }
     );
-    // Removed redundant loading toast
+    return;
   };
 
   const handleLogin = () => {

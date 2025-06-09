@@ -19,15 +19,15 @@ const MainLayout: React.FC<MainLayoutProps> = ({
   onSignupClick
 }) => {
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col">
+    <div className="min-h-screen bg-neutral-50 flex flex-col">
       <Header 
         onLoginClick={onLoginClick}
         onSignupClick={onSignupClick}
       />
       
       {showStepper && (
-        <div className="bg-white border-b border-gray-200">
-          <div className="max-w-6xl mx-auto">
+        <div className="bg-white/80 backdrop-blur-sm border-b border-neutral-200 shadow-sm">
+          <div className="max-w-7xl mx-auto px-3 sm:px-4">
             <Stepper 
               steps={PROGRESS_STEPS} 
               currentStep={currentStep}
