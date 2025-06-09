@@ -1,25 +1,66 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react';
+import toast from 'react-hot-toast';
+import { ErrorBoundary, ToastProvider } from './components/common';
+import { SkipSelectionPage } from './pages';
+import MainLayout from './layouts/MainLayout';
+import { Skip } from './types';
+import { formatCurrency } from './utils';
 
 function App() {
+  useEffect(() => {
+    document.title = 'WeWantWaste - Skip Hire Made Simple | Choose Your Skip Size';
+  }, []);
+
+  const handleBack = () => {
+    // Removed unnecessary back toast - users can see navigation happening
+  };
+
+  const handleContinue = (selectedSkip: Skip) => {
+    toast.success(
+      `Great choice! ${selectedSkip.display_name} for ${formatCurrency(selectedSkip.total_price)}`,
+      { duration: 3000, icon: '🎉' }
+    );
+    // Removed redundant loading toast
+  };
+
+  const handleLogin = () => {
+    toast(
+      'Login functionality coming soon! We\'ll notify you when ready.',
+      {
+        duration: 4000,
+        icon: '🔒',
+        style: {
+          background: '#3B82F6',
+          color: 'white',
+        },
+      }
+    );
+  };
+
+  const handleSignup = () => {
+    toast.success(
+      'Get your instant quote! Our team will contact you within 2 hours.',
+      {
+        duration: 5000,
+        icon: '📞',
+      }
+    );
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <ToastProvider>
+      <ErrorBoundary>
+        <MainLayout 
+          onLoginClick={handleLogin}
+          onSignupClick={handleSignup}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <SkipSelectionPage 
+            onBack={handleBack}
+            onContinue={handleContinue}
+          />
+        </MainLayout>
+      </ErrorBoundary>
+    </ToastProvider>
   );
 }
 
