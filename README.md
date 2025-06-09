@@ -116,7 +116,7 @@ My primary goal was to transform the user experience from a basic selection list
 1. **Clone the repository:**
 ```bash
 git clone https://github.com/Siffersari/Skip.git
-cd skip-redesign
+cd Skip
 ```
 
 2. **Install dependencies:**

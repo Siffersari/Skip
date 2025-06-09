@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import toast from 'react-hot-toast';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import { ErrorBoundary, ToastProvider } from './components/common';
 import { SkipSelectionPage } from './pages';
 import MainLayout from './layouts/MainLayout';
@@ -59,6 +60,7 @@ function App() {
             onContinue={handleContinue}
           />
         </MainLayout>
+        <SpeedInsights />
       </ErrorBoundary>
     </ToastProvider>
   );
